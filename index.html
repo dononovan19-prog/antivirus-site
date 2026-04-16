@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AntiVirus Pro - Scan &amp; Protection Premium</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>AntiVirus Pro</span>
+            </div>
+        <nav>
+                <a href="#features">Fonctionnalités</a>
+                <a href="#pricing">Tarifs</a>
+                <a href="#dashboard" class="dashboard-btn" style="display:none;">Tableau de bord</a>
+                <button id="loginBtn" class="login">Connexion</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Scanner -->
+    <section class="hero">
+        <div class="container">
+            <h1>Protégez-vous en 1 clic</h1>
+            <p>Scannez vos fichiers instantanément. Protection Premium garantie.</p>
+            <div class="scanner">
+                <div class="upload-area" id="uploadArea">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Glissez-déposez ou cliquez pour scanner</p>
+                    <input type="file" id="fileInput" multiple accept="*/*" style="display:none;">
+                </div>
+                <div class="scan-results" id="scanResults" style="display:none;">
+                    <div class="loading" id="loading">
+                        <div class="spinner"></div>
+                        <p>Analyse en cours...</p>
+                    </div>
+                    <div class="result clean" id="scanResult">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Fichier propre</h3>
+                        <p>Aucune menace détectée</p>
+                    </div>
+                </div>
+            </div>
+            <div class="stats">
+                <div><span>10M+</span> fichiers scannés</div>
+                <div><span>99.9%</span> précision</div>
+                <div><span>24/7</span> protection</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Fonctionnalités Premium</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <i class="fas fa-search"></i>
+                    <h3>Scan Instantané</h3>
+                    <p>Détection multi-couches en temps réel</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-firewall"></i>
+                    <h3>Protection Web</h3>
+                    <p>B Ascenseurs malveillants bloqués</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-shield-virus"></i>
+                    <h3>IA Anti-Malware</h3>
+                    <p>Zero-day threats détectés</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2>Choisissez votre plan</h2>
+            <p>Premium protection adaptée à vos besoins</p>
+            <div class="pricing-grid">
+                <div class="plan basic">
+                    <div class="plan-header">
+                        <h3>Basic</h3>
+                        <div class="price">12€</div>
+                        <div class="period">/ 3 mois</div>
+                    </div>
+                    <ul>
+                        <li>✓ Scan fichiers</li>
+                        <li>✓ Protection de base</li>
+                        <li>✗ Web protection</li>
+                    </ul>
+                    <button class="subscribe-btn" data-plan="basic">Souscrire</button>
+                </div>
+                <div class="plan pro recommended">
+                    <div class="badge">Populaire</div>
+                    <div class="plan-header">
+                        <h3>Pro</h3>
+                        <div class="price">30€</div>
+                        <div class="period">/ 15 mois</div>
+                    </div>
+                    <ul>
+                        <li>✓ Tout Basic</li>
+                        <li>✓ Protection Web</li>
+                        <li>✓ Support prioritaire</li>
+                    </ul>
+                    <button class="subscribe-btn" data-plan="pro">Souscrire</button>
+                </div>
+                <div class="plan premium">
+                    <div class="plan-header">
+                        <h3>Premium</h3>
+                        <div class="price">80€</div>
+                        <div class="period">/ an</div>
+                    </div>
+                    <ul>
+                        <li>✓ Tout Pro</li>
+                        <li>✓ IA avancée</li>
+                        <li>✓ Apps mobiles</li>
+                    </ul>
+                    <button class="subscribe-btn" data-plan="premium">Souscrire maintenant</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&amp;copy; 2024 AntiVirus Pro. Tous droits réservés. | <a href="#">Confidentialité</a> | <a href="#">Conditions</a></p>
+        </div>
+    </footer>
+
+    <!-- Payment Modal -->
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeLogin">&times;</span>
+            <h2>Connexion</h2>
+            <form id="loginForm">
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <input type="password" id="loginPassword" placeholder="Mot de passe" required>
+                <label>
+                    <input type="checkbox" id="rememberMe"> Se souvenir de moi
+                </label>
+                <div style="margin-top:10px; font-size:14px; color:#666;">
+                    Test compte: <strong>test@test.com / 123</strong>
+                </div>
+                <button type="submit">Se connecter</button>
+                <a href="#" id="showRegister">Créer un compte</a>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close" id="closeRegister">&times;</span>
+            <h2>Inscription</h2>
+            <form id="registerForm">
+                <input type="text" id="regName" placeholder="Nom">
+                <input type="email" id="regEmail" placeholder="Email" required>
+                <input type="password" id="regPassword" placeholder="Mot de passe" required>
+                <button type="submit">S'inscrire</button>
+                <a href="#" id="showLogin">Déjà un compte ?</a>
+            </form>
+        </div>
+    </div>
+
+    <!-- Dashboard Overlay -->
+    <div id="dashboardOverlay" class="dashboard-overlay" style="display:none;">
+        <div class="dashboard">
+            <div class="dashboard-header">
+                <h2>Tableau de bord</h2>
+                <button id="logoutBtn">Déconnexion</button>
+            </div>
+            <div class="dashboard-content">
+                <div class="scan-options">
+                    <h3>Options de scan</h3>
+                    <label><input type="checkbox" id="quickScan"> Scan rapide</label>
+                    <label><input type="checkbox" id="deepScan" checked> Scan approfondi</label>
+                    <label><input type="checkbox" id="webScan"> Protection web</label>
+                    <button id="runCustomScan">Lancer scan personnalisé</button>
+                </div>
+                <div class="scan-history">
+                    <h3>Historique scans</h3>
+                    <div id="historyList"></div>
+                </div>
+                <div class="protection-status">
+                    <h3>Protection active</h3>
+                    <div class="status-grid">
+                        <div class="status-item">
+                            <i class="fas fa-shield-check"></i>
+                            <span>Temps réel <span class="status on" id="realtimeStatus">ACTIF</span></span>
+                        </div>
+                        <div class="status-item">
+                            <i class="fas fa-firewall"></i>
+                            <span>Firewall <span class="status on" id="firewallStatus">ACTIF</span></span>
+                        </div>
+                    </div>
+                    <button id="toggleProtection">Désactiver tout</button>
+                </div>
+                <div class="subscription-info">
+                    <h3>Abonnement</h3>
+                    <p>Plan: <span id="userPlan">Basic</span></p>
+                    <p>Expire: <span id="planExpiry">15 déc. 2024</span></p>
+                    <a href="#pricing" class="upgrade-btn">Améliorer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalPrice"></p>
+            <div class="payment-form">
+                <input type="text" placeholder="Numéro carte" id="cardNumber">
+                <input type="text" placeholder="MM/AA CVV" id="cardExpiry">
+                <button id="payButton">Payer avec Stripe</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
